@@ -4,9 +4,53 @@
 		<link rel="stylesheet" href="/style.css">
 	</head>
 	<body>
-		<h1>Hola Mundo</h1>
+		<div class='login'>
+			<form id="login_form">
+				<div>
+					<label>username</label>
+					<input id="username_input" type="text" placeholder="username"/>
+				</div>
+				<div>
+					<span class="login_error"></span>
+				</div>
+				<div>
+					<input type='submit' value='login' />
+				</div>
+			</form>
+		</div>
+		<div class="users">
+			<div class='h-users'>
+				<form id="search_form">
+					<div>
+						<input type='text' placeholder="user1..." />
+					</div>
+					<div>
+						<input type='submit' />
+					</div>
+				</form>
+			</div>
+			<div class="users-list">
+			</div>
+		</div>
+		<div class="chat">
+			<div class='h-chat'>
+				<p id="current-username">username</p>
+			</div>
+			<div class="messages">
+			</div>
+			<div class='f-chat'>
+				<form id="chat_form">
+					<div>
+						<input type='text' placeholder="type a message" />
+					</div>
+					<div>
+						<input type='submit'/>
+					</div>
+				</form>
+			</div>
+		</div>
 		<script src="/socket.io/socket.io.js"></script>
-		<script src="/app.js">
+		<script src="/script.js">
 			</script>
 
 	</body>
