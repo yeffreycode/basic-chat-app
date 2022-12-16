@@ -1,18 +1,235 @@
-h1 {
-	color:  red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.users, .chat {
-	display: none;
+html {
+  display: flex;
+}
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+}
+:root {
+  color: #fff;
+  background-color: #000;
 }
 
+input {
+  border: none;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 5px 5px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}
+input[type="submit"],
+button {
+  padding: 10px 20px;
+  background-color: #232323;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-weight: bolder;
+  cursor: pointer;
+}
+/* login styles  */
 .login {
-	position: relative;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.login,
+.users {
+  display: none;
+}
+#login_form {
+  display: flex;
+  flex-direction: column;
 }
 
+#login_form > div {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+#login_form > div:last-child > * {
+  margin: auto;
+}
+.login_error {
+  color: #fd5816;
+}
 .login.loading::before {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: #0003;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #0003;
+}
+
+/* users styles  */
+.h-users {
+  z-index: 1;
+  position: sticky;
+  background-color: 000;
+  top: 0;
+  padding: 0 10px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: inset 0 0px 10px white;
+  align-items: center;
+}
+#search_form {
+  display: flex;
+  align-items: center;
+}
+#search_form button {
+  opacity: 1;
+  background-color: transparent;
+  padding: 0;
+  border: 1px solid white;
+  width: 30px;
+  margin-left: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.users-list {
+  top: 50px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.user {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+}
+
+/* chat styles  */
+.chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.messages {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+.message {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  max-width: 80%;
+}
+.message .txt {
+  display: inline-block;
+  position: relative;
+  min-height: 20px;
+  padding: 5px 10px;
+  background-color: #456;
+  right: -10px;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+}
+.message .tik {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  width: calc(100% + 10px);
+}
+.message .tik::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  background-color: #456;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  transform: rotate(30deg) translate(-3px, -7px);
+}
+
+.message.own {
+  left: calc(100% - 10px);
+  transform: translateX(-100%);
+}
+
+.message.own .tik::after {
+  transform: rotate(-30deg) translate(3px, -7px);
+  top: 0;
+  left: auto;
+  background-color: #123;
+  right: 0;
+}
+
+.message.own .txt {
+  background-color: #123;
+  right: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0;
+}
+
+.h-chat {
+  position: sticky;
+  top: 0;
+  padding: 0 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+.f-chat {
+  position: sticky;
+  height: 60px;
+  bottom: 0;
+  border-top: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+.f-chat form {
+  flex: 1;
+  display: flex;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.f-chat form div:first-child {
+  flex: 1;
+  display: flex;
+}
+.f-chat form div:first-child input {
+  flex: 1;
+  padding: 10px 5px;
+}
+.f-chat form button {
+  margin-left: 10px;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    width: 80%;
+    border: 1px solid white;
+  }
 }

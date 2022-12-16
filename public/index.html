@@ -1,57 +1,255 @@
-<html DOCTYPE='html'>
-	<head>
-		<title>Node chat app</title>
-		<link rel="stylesheet" href="/style.css">
-	</head>
-	<body>
-		<div class='login'>
-			<form id="login_form">
-				<div>
-					<label>username</label>
-					<input id="username_input" type="text" placeholder="username"/>
-				</div>
-				<div>
-					<span class="login_error"></span>
-				</div>
-				<div>
-					<input type='submit' value='login' />
-				</div>
-			</form>
-		</div>
-		<div class="users">
-			<div class='h-users'>
-				<form id="search_form">
-					<div>
-						<input type='text' placeholder="user1..." />
-					</div>
-					<div>
-						<input type='submit' />
-					</div>
-				</form>
-			</div>
-			<div class="users-list">
-			</div>
-		</div>
-		<div class="chat">
-			<div class='h-chat'>
-				<p id="current-username">username</p>
-			</div>
-			<div class="messages">
-			</div>
-			<div class='f-chat'>
-				<form id="chat_form">
-					<div>
-						<input type='text' placeholder="type a message" />
-					</div>
-					<div>
-						<input type='submit'/>
-					</div>
-				</form>
-			</div>
-		</div>
-		<script src="/socket.io/socket.io.js"></script>
-		<script src="/script.js">
-			</script>
-
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node chat app</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://kit.fontawesome.com/2590120cac.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="login">
+      <form id="login_form">
+        <div>
+          <label>username</label>
+          <input autocomplete="off" id="username_input" type="text" placeholder="username" />
+        </div>
+        <div>
+          <span class="login_error"></span>
+        </div>
+        <div>
+          <input type="submit" value="login" />
+        </div>
+      </form>
+    </div>
+    <div class="users">
+      <div class="h-users">
+        <p>username</p>
+        <form id="search_form">
+          <div>
+            <input type="text" placeholder="user1..." />
+          </div>
+          <div>
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="users-list">
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+        <div class="user">
+          <span>username</span>
+          <button>chat</button>
+        </div>
+      </div>
+    </div>
+    <div class="chat">
+      <div class="h-chat">
+        <p id="current-username">username</p>
+        <button>
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+      </div>
+      <div class="messages">
+        <div class="message">
+          <span class="tik"></span>
+          <span class="txt">hi pe</span>
+        </div>
+        <div class="message own">
+          <span class="tik"></span>
+          <span class="txt">hola pe hola pe hola pe</span>
+        </div>
+        <div class="message">
+          <span class="tik"></span>
+          <span class="txt">jfsihfas fdisajfia jdjsi fdisajfia jdjsi vvv fdisajfia jdjsi fdisajfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ djfadi fajdfa
+          </span>
+        </div>
+        <div class="message own">
+          <span class="tik"></span>
+          <span class="txt">jfsihfas fdisajfia jdjsi fdisajfia jdjsi vvv fdisajfia jdjsi fdisajfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ jfia jdjsiaodj IDSJ djfadi fajdfa
+          </span>
+        </div>
+        <div class="message">
+          <span class="tik"></span classtxt><span></span></div>
+        <div class="message own"><span></span></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+        <div class="message"></div>
+      </div>
+      <div class="f-chat">
+        <form id="chat_form">
+          <div>
+            <input type="text" placeholder="type a message" />
+          </div>
+          <div>
+            <button type="submit">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script.js"></script>
+  </body>
 </html>
