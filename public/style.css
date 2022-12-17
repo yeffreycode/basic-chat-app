@@ -43,10 +43,7 @@ button {
   display: flex;
   flex-direction: column;
 }
-.login,
-.users {
-  display: none;
-}
+
 #login_form {
   display: flex;
   flex-direction: column;
@@ -213,6 +210,7 @@ button {
   padding: 0 10px;
   justify-content: space-between;
   align-items: center;
+  background-color: #000;
 }
 .f-chat form div:first-child {
   flex: 1;
@@ -232,4 +230,9 @@ button {
     width: 80%;
     border: 1px solid white;
   }
+}
+
+.chat,
+.users {
+  display: none;
 }
