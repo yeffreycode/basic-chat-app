@@ -9,10 +9,10 @@ app.state = {
   currentChatId: "",
 };
 
-app.login = (socket, username) => {
+app.login = function (socket, username) {
   socket.emit("login", { username });
 };
-app.validateUsername = (username) => {
+app.validateUsername = function (username) {
   let regex = /^[a-z0-9]+$/;
   return regex.test(username);
 };
@@ -121,6 +121,17 @@ app.bindOpenChat = () => {
     };
   });
 };
+app.bindBackBtn = () => {
+  let back = () => {
+    d.querySelector(".login").style.display = "none";
+    d.querySelector(".chat").style.display = "none";
+    d.querySelector(".users").style.display = "block";
+    d.querySelector(".back-model").style.display = "none";
+    d.querySelector(".messages").innerHTML = "";
+  };
+  d.querySelector(".back-btn").onclick = back;
+  d.querySelector(".back-btn-model").onclick = back;
+};
 app.setUsernameToChatHeader = (username) => {
   let currentUsername = document.getElementById("current-username");
   currentUsername.innerHTML = username;
@@ -160,6 +171,7 @@ app.addMessage = (message) => {
   let messages = d.querySelector(".messages");
   messages.appendChild(message);
 };
+app.backtoUsersList = () => {};
 //sockets listen
 
 //login
@@ -176,13 +188,18 @@ socket.on("login", (d) => {
 //new user
 socket.on("new-user", (user) => {
   let element = app.generateUser(user);
-  app.addUsersList(element);
-  app.state.users.push(user);
-  app.bindOpenChat();
+  if (app.state.socketId !== user.socketId) {
+    app.addUsersList(element);
+    app.state.users.push(user);
+    app.bindOpenChat();
+  }
 });
 //remove user
 socket.on("remove-user", (id) => {
   app.removeUser(id);
+  if (id === app.state.currentChatId) {
+    d.querySelector(".back-model").style.display = "block";
+  }
 });
 //get users
 socket.on("get-users", (users) => {
@@ -190,6 +207,7 @@ socket.on("get-users", (users) => {
     users.forEach((user) => {
       let element = app.generateUser(user);
       app.addUsersList(element);
+      if (user.socketId === app.state.socketId) console.log(user);
     });
     app.state.users = users;
     app.bindOpenChat();
@@ -206,4 +224,5 @@ socket.on("new-message", (msg) => {
 window.onload = () => {
   app.bindLoginForm();
   app.bindMessageForm();
+  app.bindBackBtn();
 };

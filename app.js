@@ -24,14 +24,17 @@ io.on("connection", (socket) => {
       users.push({ socketId: socket.id, ...data });
       socket.emit("login", user);
       users.map((item) => {
-        item.socketId !== user.socketId && io.to(item.socketId).emit("new-user", user);
+        if (item.socketId !== user.socketId) {
+          io.to(item.socketId).emit("new-user", user);
+        }
       });
     } else {
       socket.emit("login", false);
     }
   });
   socket.on("get-users", () => {
-    socket.emit("get-users", users);
+    let usersSend = users.filter((item) => item.socketId !== socket.id);
+    socket.emit("get-users", usersSend);
   });
 
   //message
