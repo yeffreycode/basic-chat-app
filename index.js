@@ -1,2 +1,3 @@
-const httpServer = require('./app');
-httpServer.listen(4000, ()=>console.log("server running on port 4000"));
+const httpServer = require("./app");
+const config = require("./config");
+httpServer.listen(config.port, () => console.log("server running on port 4000"));
